@@ -3,6 +3,9 @@ package com.spring.jdbc.config;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
 import java.util.Properties;
@@ -10,12 +13,16 @@ import java.util.Properties;
 /**
  * Created by xin on 2019/8/20.
  */
-//@Configuration
+@Configuration
+@EnableAspectJAutoProxy
 public class DeclareTransactionConfig {
 
     @Bean
     public TransactionInterceptor declareTxAdvice() {
         Properties properties = new Properties();
+        /**
+         * @see Propagation
+         */
         properties.setProperty("add*", "PROPAGATION_REQUIRED");
         properties.setProperty("insert*", "PROPAGATION_REQUIRED");
         properties.setProperty("update*", "PROPAGATION_REQUIRED");
