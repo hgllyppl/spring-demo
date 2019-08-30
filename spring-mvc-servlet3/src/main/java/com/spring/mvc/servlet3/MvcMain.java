@@ -5,6 +5,7 @@ import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
 import org.springframework.web.SpringServletContainerInitializer;
+import org.springframework.web.context.support.AbstractRefreshableWebApplicationContext;
 
 import javax.servlet.ServletException;
 import java.io.File;
@@ -15,6 +16,10 @@ import java.io.IOException;
  */
 public class MvcMain {
 
+    /**
+     * web作用域
+     * @see AbstractRefreshableWebApplicationContext#postProcessBeanFactory
+     */
     public static void main(String[] args) throws LifecycleException, IOException, ServletException {
         // 创建 tomcat
         Tomcat tomcat = new Tomcat();
