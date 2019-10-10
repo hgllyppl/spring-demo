@@ -20,6 +20,7 @@ public class OrmMain {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OrmMain.class);
 
+    // push github 测试
     public static void main(String[] args) {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(OrmMain.class);
         ScoreDao scoreDao = ctx.getBean(ScoreDao.class);
